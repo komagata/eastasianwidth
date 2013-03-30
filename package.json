@@ -1,7 +1,7 @@
 {
   "name": "eastasianwidth",
   "version": "0.0.1",
-  "description": "East Asian Width",
+  "description": "Get East Asian Width from a character.",
   "main": "eastasianwidth.js",
   "scripts": {
     "test": "mocha"
