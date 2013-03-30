@@ -1,0 +1,12 @@
+{
+  "name": "eastasianwidth",
+  "version": "0.0.1",
+  "description": "East Asian Width",
+  "main": "eastasianwidth.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": "git://github.com/komagata/eastasianwidth.git",
+  "author": "Masaki Komagata",
+  "license": "MIT"
+}
