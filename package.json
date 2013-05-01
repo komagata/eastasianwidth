@@ -8,5 +8,8 @@
   },
   "repository": "git://github.com/komagata/eastasianwidth.git",
   "author": "Masaki Komagata",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "~1.9.0"
+  }
 }
