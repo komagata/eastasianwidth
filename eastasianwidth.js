@@ -1,4 +1,10 @@
-var eaw = exports;
+var eaw = {};
+
+if ('undefined' == typeof module) {
+  window.eastasianwidth = eaw;
+} else {
+  module.exports = eaw;
+}
 
 eaw.eastAsianWidth = function(character) {
   var x = character.charCodeAt(0);
