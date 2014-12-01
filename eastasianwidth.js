@@ -275,3 +275,17 @@ eaw.length = function(string) {
   }
   return len;
 };
+
+eaw.slice = function(text, start, end) {
+  start = start ? start : 0;
+  end = end ? end : 1;
+  var result = '';
+  for (var i = 0; i < text.length; i++) {
+    var char = text.charAt(i);
+    var eawLen = eaw.length(result + char);
+    if (eawLen >= 1 + start && eawLen < 1 + end) {
+      result += char
+    }
+  }
+  return result;
+};
