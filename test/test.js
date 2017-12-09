@@ -38,6 +38,7 @@ describe('characterLength', function() {
   it('Fullwidth', function() {
     assert.equal(2, eaw.characterLength('￠'));
     assert.equal(2, eaw.characterLength('￦'));
+    assert.equal(2, eaw.characterLength('𩸽'));
   });
 
   it('Halfwidth', function() {
@@ -79,5 +80,9 @@ describe('length', function() {
 
   it('Mixed', function() {
     assert.equal(19, eaw.length('￠￦｡ￜㄅ뀀¢⟭a⊙①بف'));
+  });
+
+  it('Surrogate-Pair character included', function() {
+    assert.equal(4, eaw.length('a𩸽b'));
   });
 });

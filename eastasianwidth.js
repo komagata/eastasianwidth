@@ -268,10 +268,16 @@ eaw.characterLength = function(character) {
   }
 };
 
+// Split a string considering surrogate-pairs.
+function stringToArray(string) {
+  return string.match(/[\uD800-\uDBFF][\uDC00-\uDFFF]|[^\uD800-\uDFFF]/g) || [];
+}
+
 eaw.length = function(string) {
+  var characters = stringToArray(string);
   var len = 0;
-  for (var i = 0; i < string.length; i++) {
-    len = len + this.characterLength(string.charAt(i));
+  for (var i = 0; i < characters.length; i++) {
+    len = len + this.characterLength(characters[i]);
   }
   return len;
 };
