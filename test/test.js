@@ -120,4 +120,12 @@ describe('slice', function() {
     assert.equal(eaw.slice('aあb', 2, -1), 'あ');
     assert.equal(eaw.slice('aあb', 0, 2) + eaw.slice('aあb', 2, 4), 'aあb');
   });
+  it('Surrogate-Pair character included', function() {
+    assert.equal(eaw.slice('a𩸽b', 0, 3), 'a𩸽');
+    assert.equal(eaw.slice('a𩸽b', 1, 4), '𩸽b');
+  });
+  it('Surrogate-Pair character included, start / end is not aligned', function() {
+    assert.equal(eaw.slice('a𩸽b', 0, 2), 'a');
+    assert.equal(eaw.slice('a𩸽b', 2, 4), '𩸽b');
+  });
 });

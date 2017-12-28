@@ -294,8 +294,9 @@ eaw.slice = function(text, start, end) {
   }
   var result = '';
   var eawLen = 0;
-  for (var i = 0; i < text.length; i++) {
-    var char = text.charAt(i);
+  var chars = stringToArray(text);
+  for (var i = 0; i < chars.length; i++) {
+    var char = chars[i];
     var charLen = eaw.length(char);
     if (eawLen >= start - (charLen == 2 ? 1 : 0)) {
         if (eawLen + charLen <= end) {
