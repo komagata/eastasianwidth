@@ -86,3 +86,46 @@ describe('length', function() {
     assert.equal(4, eaw.length('a𩸽b'));
   });
 });
+
+
+describe('slice', function() {
+  it('Fullwidth', function() {
+    assert.equal(eaw.slice('あいうえお', 0, 6), 'あいう');
+    assert.equal(eaw.slice('あいうえお', 2, 8), 'いうえ');
+    assert.equal(eaw.slice('あいうえお', 4, 10), 'うえお');
+    assert.equal(eaw.slice('あいうえお', 2, -2), 'いうえ');
+    assert.equal(eaw.slice('あいうえお', -2, 10), 'お');
+  });
+  it('Fullwidth, start / end is not aligned', function() {
+    assert.equal(eaw.slice('あいうえお', 0, 1), '');
+    assert.equal(eaw.slice('あいうえお', 1, 9), 'あいうえ');
+    assert.equal(eaw.slice('あいうえお', 9, 10), 'お');
+    assert.equal(eaw.slice('あいうえお', -1, 10), 'お');
+    assert.equal(eaw.slice('あいうえお', 1, -1), 'あいうえ');
+  });
+  it('Halfwidth', function() {
+    assert.equal(eaw.slice('abcdefg', 0, 3), 'abc');
+    assert.equal(eaw.slice('abcdefg', 3, 6), 'def');
+    assert.equal(eaw.slice('abcdefg', -2, 7), 'fg');
+    assert.equal(eaw.slice('abcdefg', 5, -1), 'f');
+  });
+  it('Mixed', function() {
+    assert.equal(eaw.slice('aあb', 0, 3), 'aあ');
+    assert.equal(eaw.slice('aあb', 1, 4), 'あb');
+  });
+  it('Mixed, start / end is not aligned', function() {
+    assert.equal(eaw.slice('aあb', 0, 2), 'a');
+    assert.equal(eaw.slice('aあb', 2, 4), 'あb');
+    assert.equal(eaw.slice('aあb', -2, 4), 'あb');
+    assert.equal(eaw.slice('aあb', 2, -1), 'あ');
+    assert.equal(eaw.slice('aあb', 0, 2) + eaw.slice('aあb', 2, 4), 'aあb');
+  });
+  it('Surrogate-Pair character included', function() {
+    assert.equal(eaw.slice('a𩸽b', 0, 3), 'a𩸽');
+    assert.equal(eaw.slice('a𩸽b', 1, 4), '𩸽b');
+  });
+  it('Surrogate-Pair character included, start / end is not aligned', function() {
+    assert.equal(eaw.slice('a𩸽b', 0, 2), 'a');
+    assert.equal(eaw.slice('a𩸽b', 2, 4), '𩸽b');
+  });
+});

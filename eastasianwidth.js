@@ -283,15 +283,29 @@ eaw.length = function(string) {
 };
 
 eaw.slice = function(text, start, end) {
+  textLen = eaw.length(text)
   start = start ? start : 0;
   end = end ? end : 1;
+  if (start < 0) {
+      start = textLen + start;
+  }
+  if (end < 0) {
+      end = textLen + end;
+  }
   var result = '';
-  for (var i = 0; i < text.length; i++) {
-    var char = text.charAt(i);
-    var eawLen = eaw.length(result + char);
-    if (eawLen >= 1 + start && eawLen < 1 + end) {
-      result += char
+  var eawLen = 0;
+  var chars = stringToArray(text);
+  for (var i = 0; i < chars.length; i++) {
+    var char = chars[i];
+    var charLen = eaw.length(char);
+    if (eawLen >= start - (charLen == 2 ? 1 : 0)) {
+        if (eawLen + charLen <= end) {
+            result += char;
+        } else {
+            break;
+        }
     }
+    eawLen += charLen;
   }
   return result;
 };
