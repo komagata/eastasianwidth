@@ -1,6 +1,6 @@
 {
   "name": "eastasianwidth",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Get East Asian Width from a character.",
   "main": "eastasianwidth.js",
   "files": [
