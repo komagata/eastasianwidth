@@ -30,3 +30,9 @@ Original Code is [東アジアの文字幅 (East Asian Width) の判定 - 中途
     console.log(eaw.length('あいうえお')) // 10
     console.log(eaw.length('abcdefg')) // 7
     console.log(eaw.length('￠￦｡ￜㄅ뀀¢⟭a⊙①بف')) // 19
+
+## Usage ESM
+
+    import eaw from 'eastasianwidth'
+    ...
+
