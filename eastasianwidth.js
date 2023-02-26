@@ -283,7 +283,7 @@ eaw.length = function(string) {
 };
 
 eaw.slice = function(text, start, end) {
-  textLen = eaw.length(text)
+  var textLen = eaw.length(text)
   start = start ? start : 0;
   end = end ? end : 1;
   if (start < 0) {
