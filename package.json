@@ -4,7 +4,8 @@
   "description": "Get East Asian Width from a character.",
   "main": "eastasianwidth.js",
   "files": [
-    "eastasianwidth.js"
+    "eastasianwidth.js",
+    "eastasianwidth.d.ts"
   ],
   "scripts": {
     "test": "mocha"
