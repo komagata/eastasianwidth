@@ -1,6 +1,6 @@
 {
   "name": "eastasianwidth",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Get East Asian Width from a character.",
   "main": "eastasianwidth.js",
   "files": [
@@ -14,6 +14,6 @@
   "author": "Masaki Komagata",
   "license": "MIT",
   "devDependencies": {
-    "mocha": "~1.9.0"
+    "mocha": "^10.4.0"
   }
 }
