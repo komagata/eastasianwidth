@@ -5,7 +5,9 @@
   "main": "eastasianwidth.js",
   "files": [
     "eastasianwidth.js",
-    "eastasianwidth.d.ts"
+    "eastasianwidth.d.ts",
+    "MIT-LICENSE.txt",
+    "LICENSE-NOTES.md"
   ],
   "scripts": {
     "test": "mocha"
